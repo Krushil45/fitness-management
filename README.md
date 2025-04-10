@@ -19,3 +19,12 @@ A full-stack Fitness Management System that demonstrates how **Node.js**, **Angu
 |------------------|----------------|-------------|
 | AngularJS        | Node.js        | MongoDB     |
 | HTML, CSS        | Express.js     | Mongoose    |
+
+---
+
+🧠 Purpose
+This project is built as a learning demonstration for how a MERN-like architecture (MongoDB, Express.js, AngularJS, Node.js) can be used to develop a functional full-stack web application. It’s ideal for educational or demo purposes.
+
+---
+
+https://www.linkedin.com/in/krushil-kapupara/ || https://github.com/Krushil45
