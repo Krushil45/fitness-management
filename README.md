@@ -29,27 +29,31 @@ FITNESSMANAGEMENTSYSTEM/ │ ├── node_modules/ # Node dependencies ├─�
 ---
 ## ⚙️ How to Run the Project
 
-Install Backend Dependencies
-cd backend
-npm install
+-Install Backend Dependencies
+
+ cd backend
+ npm install
 
 ---
 
-Start the Backend Server
-node app.js
+-Start the Backend Server
+
+ #node app.js/server.js
 
 ---
 
-Serve the Frontend
+-Serve the Frontend
 
-If you're using AngularJS without CLI:
+-If you're using AngularJS without CLI:
 
 cd frontend
 
-# Serve using a live server extension or any static server (e.g., http-server)
+-Serve using a live server extension or any static server (e.g., http-server)
+
 --
 Or if integrated with Express:
-# Backend should already serve frontend static files
+
+-Backend should already serve frontend static files
 
 ---
 
@@ -64,6 +68,7 @@ MONGO_URI=mongodb://localhost:27017/fitness_db
 📬 API Endpoints:
 
 Method/Endpoint	/Description
+
 POST	/api/bookings	Book a service
 
 GET	/api/workouts	Get workout suggestions
@@ -74,6 +79,7 @@ POST	/api/contact	Send message to admin
 
 📸 Screenshots
 Home :- ![image](https://github.com/user-attachments/assets/04fad336-c8bb-4202-8c5c-8e1d69e9ffcd)
+
 Services :- ![image](https://github.com/user-attachments/assets/97bed408-7b72-4c67-9936-44e7284420c4)
 
 ---
@@ -94,9 +100,7 @@ https://www.linkedin.com/in/krushil-kapupara || https://github.com/Krushil45
 📄 License
 
 This project is licensed under the MIT License. Feel free to use and modify it!
-
 ---
-
 Let me know if you'd like this customized more for deployment (like on Vercel or Render), or want to include actual screenshots, environment setup, or `.env.example`.
 Let me know if you'd like to:
 - Add MongoDB or any database for storing bookings
