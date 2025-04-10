@@ -76,7 +76,9 @@ This project is built as a learning demonstration for how a MERN-like architectu
 
 ---
 👨‍💻 Author
+
 Krushil Kapupara
+
 https://www.linkedin.com/in/krushil-kapupara || https://github.com/Krushil45
 
 ---
