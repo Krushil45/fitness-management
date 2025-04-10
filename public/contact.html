@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fitnessApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Fitness System</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+  <style>
+:root {
+  --primary-color: #ffcc00;
+  --dark-bg: #111;
+  --light-bg: #1c1c1c;
+  --text-color: #f5f5f5;
+  --hover-bg: #ffcc00;
+  --hover-text: #111;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('gym-contact-bg.jpg') no-repeat center center/cover;
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: var(--hover-text);
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+  text-align: center;
+}
+
+.contact-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.contact-info li {
+  background-color: var(--light-bg);
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  font-size: 15px;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.1);
+}
+
+.contact-info li strong {
+  color: var(--primary-color);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="text"],
+input[type="tel"] {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  font-size: 15px;
+  outline: none;
+}
+
+input[type="text"]::placeholder,
+input[type="tel"]::placeholder {
+  color: #ccc;
+}
+
+input[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--hover-text);
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #e0a800;
+}
+
+footer {
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    margin: 40px 20px;
+    padding: 20px;
+  }
+
+  .contact-container h2 {
+    font-size: 1.5rem;
+  }
+
+  input[type="submit"] {
+    font-size: 14px;
+  }
+}
+
+  </style>
+</head>
+<body ng-controller="ContactController">
+
+<header>
+    <h1>Contact Us</h1>
+</header>
+
+<div class="contact-container">
+    <h2>Get in Touch</h2>
+    <ul class="contact-info">
+        <li><strong>Phone:</strong> +91 9925251234</li>
+        <li><strong>Email:</strong> contact@elysiusfitness.com</li>
+        <li><strong>Address:</strong> 123 Fitness St, Gym City, Anand, Surat</li>
+        <li><strong>Working Hours:</strong> Everyday : 6:00 AM - 10:00 PM</li>
+    </ul>
+
+    <!-- AngularJS Contact form -->
+    <form name="contactForm" ng-submit="submitForm()" novalidate>
+        <input type="text" name="name" ng-model="contact.name" placeholder="Your Name" required>
+        <input type="tel" name="mobile" ng-model="contact.mobile" placeholder="Mobile Number" ng-pattern="/^\d{10}$/" required>
+        <input type="submit" value="Submit" ng-disabled="contactForm.$invalid">
+    </form>
+</div>
+
+<footer>
+    <p>&copy; Elysius Fitness System. All rights reserved.</p>
+</footer>
+
+<!-- AngularJS Script -->
+<script>
+    angular.module('fitnessApp', [])
+      .controller('ContactController', function($scope, $http, $window) {
+          $scope.contact = {};
+  
+          $scope.submitForm = function() {
+              if (!/^\d{10}$/.test($scope.contact.mobile)) {
+                  alert("Please enter a valid 10-digit mobile number.");
+                  return;
+              }
+  
+              $http.post('http://localhost:5000/api/contact', $scope.contact)
+                  .then(function(response) {
+                      alert("✅ Thank you, " + $scope.contact.name + "! Your contact was saved.");
+                      // Redirect to ex.html after OK on alert
+                      $window.location.href = "ex.html";
+                  })
+                  .catch(function(error) {
+                      console.error('❌ Error:', error);
+                      alert("❌ Could not connect to server.");
+                  });
+          };
+      });
+  </script>
+  
+</body>
+</html>
