@@ -41,26 +41,33 @@ node app.js
 ---
 
 Serve the Frontend
+
 If you're using AngularJS without CLI:
+
 cd frontend
 
 # Serve using a live server extension or any static server (e.g., http-server)
+--
 Or if integrated with Express:
 # Backend should already serve frontend static files
 
 ---
 
-🌐 Environment Variables
+🌐 Environment Variables:
+
 Create a .env file in the backend/ folder (if needed):
 PORT=5000
 MONGO_URI=mongodb://localhost:27017/fitness_db
 
 ---
 
-📬 API Endpoints
-Method	Endpoint	Description
+📬 API Endpoints:
+
+Method/Endpoint	/Description
 POST	/api/bookings	Book a service
+
 GET	/api/workouts	Get workout suggestions
+
 POST	/api/contact	Send message to admin
 
 ---
@@ -71,7 +78,8 @@ Services :- ![image](https://github.com/user-attachments/assets/97bed408-7b72-4c
 
 ---
 
-🧠 Purpose
+🧠 Purpos:
+
 This project is built as a learning demonstration for how a MERN-like architecture (MongoDB, Express.js, AngularJS, Node.js) can be used to develop a functional full-stack web application. It’s ideal for educational or demo purposes.
 
 ---
@@ -84,6 +92,7 @@ https://www.linkedin.com/in/krushil-kapupara || https://github.com/Krushil45
 ---
 
 📄 License
+
 This project is licensed under the MIT License. Feel free to use and modify it!
 
 ---
